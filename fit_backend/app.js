@@ -11,6 +11,10 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+const helmet = require('helmet');
+app.use(helmet());
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -20,6 +24,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// **MariaDBに接続（明示的に実行）**
+connectDB();
+// **テーブルを同期**
+sequelize.sync({ alter: true })
+	.then(() => console.log('✅ DB同期完了'))
+	.catch(err => console.error('❌ DB同期エラー:', err));
 
 app.use('/', indexRouter);
 // ユーザールーティングの設定

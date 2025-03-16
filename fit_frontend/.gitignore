@@ -1,42 +1,39 @@
-# 環境変数ファイル
-.env
-
-# データベース設定ファイル
-config/database.json
-config.js
-
-# ログファイル
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-
-# 本番用ビルド
-dist/
-
-# OSが生成する不要ファイル
-
+node_modules
 .DS_Store
-Thumbs.db
+dist
+dist-ssr
+coverage
+*.local
 
-dist/
-node_modules/
-
-
-
-# local env files
-.env.local
-.env.*.local
-
+/cypress/videos/
+/cypress/screenshots/
 
 # Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
-.vscode
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
+*.tsbuildinfo
+
+# Vue / Vite のキャッシュ
+.vite/
+
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
