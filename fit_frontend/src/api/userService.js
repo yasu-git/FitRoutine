@@ -9,7 +9,8 @@ export const getUsers = async () => {
 
 // ユーザー作成
 export const createUser = async (user) => {
-  return await fetchAPI(`${BASE_URL}`, 'POST', user);
+  console.log("userService",user.toJSON(true));
+  return await fetchAPI(`${BASE_URL}`, 'POST', user.toJSON(true));
 };
 
 // ユーザー更新

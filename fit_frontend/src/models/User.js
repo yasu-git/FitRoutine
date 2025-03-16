@@ -4,16 +4,22 @@ export class User {
     this.username = username;
     this.email = email;
     this.tel = tel;
-    this.password = password; // ✅ パスワードを追加
+    this.password = password; // ✅ パスワードを保存
   }
 
-  toJSON() {
-    return {
+  toJSON(includePassword = false) {
+    const userData = {
       id: this.id,
       username: this.username,
       email: this.email,
       tel: this.tel,
-      // password は `toJSON()` で返さない（セキュリティ対策）
     };
+
+    // ✅ パスワードを含める場合のみ追加
+    if (includePassword) {
+      userData.password = this.password;
+    }
+
+    return userData;
   }
 }

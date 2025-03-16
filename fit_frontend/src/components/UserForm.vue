@@ -2,17 +2,17 @@
   <form @submit.prevent="submitForm">
     <div>
       <label for="username">名前</label>
-      <input id="username" v-model="selectedUser.username" required />
+      <input id="username" type="text" v-model="selectedUser.username" required />
     </div>
 
     <div>
       <label for="email">メール</label>
-      <input id="email" type="email" v-model="selectedUser.email" required />
+      <input id="email" type="text" v-model="selectedUser.email" required />
     </div>
 
     <div>
       <label for="tel">電話番号</label>
-      <input id="tel" type="tel" v-model="selectedUser.tel" required />
+      <input id="tel" type="text" v-model="selectedUser.tel" required />
     </div>
 
     <div>
@@ -33,8 +33,6 @@ const { selectedUser, addUser, editUser, resetSelectedUser } = userStore;
 
 // フォーム送信処理
 const submitForm = () => {
-  console.log('送信データ:', selectedUser); // ✅ デバッグ用ログ
-
   if (selectedUser.id) {
     editUser(selectedUser.id, selectedUser);
   } else {

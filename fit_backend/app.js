@@ -10,7 +10,7 @@ const userRoutes = require('./routes/userRoutes');
 var indexRouter = require('./routes/index');
 
 var app = express();
-app.use(cors({}));
+app.use(cors());
 const helmet = require('helmet');
 app.use(helmet());
 

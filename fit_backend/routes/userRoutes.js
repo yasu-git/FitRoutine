@@ -4,6 +4,8 @@ const userController = require('../controllers/userController');
 
 // ユーザー作成
 router.post('/', async (req, res) => {
+	console.log('✅ リクエスト受信');
+	console.log(req.body);
 	try {
 		const user = await userController.createUser(req.body);
 		res.status(201).json(user);
